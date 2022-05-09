@@ -34,18 +34,30 @@ const Sidebar = () => {
 
           <nav className="w-full">
             <ul>
-              <li className="text-center bg-yellow-400 py-4">
-                <NavLink to="/" className="uppercase font-bold">
+              <li className="text-center">
+                <NavLink
+                  to="/"
+                  className="uppercase font-bold block w-full h-full py-4"
+                  onClick={closeMenu}
+                >
                   Models
                 </NavLink>
               </li>
               <li className="text-center py-4">
-                <NavLink to="/reserve" className="uppercase font-bold">
+                <NavLink
+                  to="/reserve"
+                  className="uppercase font-bold block w-full h-full py-4"
+                  onClick={closeMenu}
+                >
                   Reserve
                 </NavLink>
               </li>
               <li className="text-center py-4">
-                <NavLink to="/" className="uppercase font-bold">
+                <NavLink
+                  to="/sign-out"
+                  className="uppercase font-bold block w-full h-full py-4"
+                  onClick={closeMenu}
+                >
                   Sign Out
                 </NavLink>
               </li>
