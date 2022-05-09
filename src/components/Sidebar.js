@@ -37,7 +37,7 @@ const Sidebar = () => {
               <li className="text-center">
                 <NavLink
                   to="/"
-                  className="uppercase font-bold block w-full h-full py-4"
+                  className="uppercase font-bold block w-full h-full py-4 transition-colors duration-300"
                   onClick={closeMenu}
                 >
                   Models
@@ -46,7 +46,7 @@ const Sidebar = () => {
               <li className="text-center py-4">
                 <NavLink
                   to="/reserve"
-                  className="uppercase font-bold block w-full h-full py-4"
+                  className="uppercase font-bold block w-full h-full py-4 transition-colors duration-300"
                   onClick={closeMenu}
                 >
                   Reserve
@@ -55,7 +55,7 @@ const Sidebar = () => {
               <li className="text-center py-4">
                 <NavLink
                   to="/sign-out"
-                  className="uppercase font-bold block w-full h-full py-4"
+                  className="uppercase font-bold block w-full h-full py-4 transition-colors duration-300"
                   onClick={closeMenu}
                 >
                   Sign Out
