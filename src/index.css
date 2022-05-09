@@ -9,5 +9,5 @@ body {
 }
 
 a.active {
-  @apply bg-yellow-400;
+  @apply bg-yellow-400 text-white;
 }
