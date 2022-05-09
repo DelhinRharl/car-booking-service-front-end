@@ -43,7 +43,7 @@ const Sidebar = () => {
                   Models
                 </NavLink>
               </li>
-              <li className="text-center py-4">
+              <li className="text-center">
                 <NavLink
                   to="/reserve"
                   className="uppercase font-bold block w-full h-full py-4 transition-colors duration-300"
@@ -52,7 +52,7 @@ const Sidebar = () => {
                   Reserve
                 </NavLink>
               </li>
-              <li className="text-center py-4">
+              <li className="text-center">
                 <NavLink
                   to="/sign-out"
                   className="uppercase font-bold block w-full h-full py-4 transition-colors duration-300"
