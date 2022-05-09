@@ -8,7 +8,7 @@ import SigUpPage from './pages/SignUp';
 
 function App() {
   return (
-    <>
+    <main className="md:flex h-screen">
       <Sidebar />
       <Routes>
         {/*
@@ -21,7 +21,7 @@ function App() {
         <Route path="/signin" element={<SignInPage />} />
         <Route path="/signup" element={<SigUpPage />} />
       </Routes>
-    </>
+    </main>
   );
 }
 
