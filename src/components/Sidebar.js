@@ -1,7 +1,7 @@
 import { useState } from 'react';
-import { NavLink } from 'react-router-dom';
 import CloseIcon from './CloseIcon';
 import HamburgerIcon from './HamburgerIcon';
+import NavItem from './NavItem';
 
 const Sidebar = () => {
   const [isMenuOpen, setIsMenuOpen] = useState(false);
@@ -34,33 +34,15 @@ const Sidebar = () => {
 
           <nav className="w-full">
             <ul>
-              <li className="text-center">
-                <NavLink
-                  to="/"
-                  className="uppercase font-bold block w-full h-full py-4 transition-colors duration-300"
-                  onClick={closeMenu}
-                >
-                  Models
-                </NavLink>
-              </li>
-              <li className="text-center py-4">
-                <NavLink
-                  to="/reserve"
-                  className="uppercase font-bold block w-full h-full py-4 transition-colors duration-300"
-                  onClick={closeMenu}
-                >
-                  Reserve
-                </NavLink>
-              </li>
-              <li className="text-center py-4">
-                <NavLink
-                  to="/sign-out"
-                  className="uppercase font-bold block w-full h-full py-4 transition-colors duration-300"
-                  onClick={closeMenu}
-                >
-                  Sign Out
-                </NavLink>
-              </li>
+              <NavItem link="/" closeMenu={closeMenu}>
+                Models
+              </NavItem>
+              <NavItem link="/reserve" closeMenu={closeMenu}>
+                Reserve
+              </NavItem>
+              <NavItem link="/sign-out" closeMenu={closeMenu}>
+                Sign Out
+              </NavItem>
             </ul>
           </nav>
         </div>
