@@ -11,3 +11,16 @@ body {
 a.active {
   @apply bg-yellow-400 text-white;
 }
+
+.carousel .control-arrow,
+.carousel.carousel-slider .control-arrow {
+  opacity: 1 !important;
+}
+
+.carousel .control-next.control-arrow::before {
+  @apply border-l-black !important;
+}
+
+.carousel .control-prev.control-arrow::before {
+  @apply border-r-black !important;
+}
