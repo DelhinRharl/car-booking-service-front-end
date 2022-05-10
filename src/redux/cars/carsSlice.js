@@ -1,8 +1,15 @@
-import { createSlice } from '@reduxjs/toolkit';
+import { createSlice, createAsyncThunk } from '@reduxjs/toolkit';
 
 const initialState = {
   cars: [],
 };
+
+export const fetchCars = createAsyncThunk('cars/fetchCars', async () => {
+  const res = await fetch('http://localhost:3000/api/v1/cars');
+  const data = await res.json();
+  console.log(data);
+  return data;
+});
 
 export const carsSlice = createSlice({
   name: 'cars',
@@ -12,6 +19,12 @@ export const carsSlice = createSlice({
       // eslint-disable-next-line no-param-reassign
       state.cars = action.payload;
     },
+  },
+  extraReducers: (builder) => {
+    builder.addCase(fetchCars.fulfilled, (state, action) => {
+      // eslint-disable-next-line no-param-reassign
+      state.cars = action.payload;
+    });
   },
 });
 

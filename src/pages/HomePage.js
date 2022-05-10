@@ -1,14 +1,13 @@
 import { useEffect } from 'react';
+import { useDispatch, useSelector } from 'react-redux';
 import ResponsiveCarousel from '../components/Carousel';
+import { fetchCars } from '../redux/cars/carsSlice';
 
 const HomePage = () => {
-  const fetchItems = async () => {
-    const res = await fetch('http://localhost:3000/api/v1/cars');
-    const data = await res.json();
-    console.log(data);
-  };
+  const dispatch = useDispatch();
+  const cars = useSelector((state) => state.cars.cars.length);
   useEffect(() => {
-    fetchItems();
+    dispatch(fetchCars());
   }, []);
 
   return (
@@ -20,6 +19,10 @@ const HomePage = () => {
         <p className="font-bold text-sm text-gray-500">
           CHOOSE YOUR PREMIUM CAR.
         </p>
+        <div>
+          {cars}
+          <span> cars</span>
+        </div>
       </div>
       <ResponsiveCarousel />
     </section>
