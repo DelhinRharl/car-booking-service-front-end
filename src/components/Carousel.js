@@ -7,15 +7,15 @@ import { fetchCars } from '../redux/cars/carsSlice';
 
 export const CarouselMobile = () => {
   const dispatch = useDispatch();
-  const cars = useSelector((state) => state.cars.cars);
+  const cars = useSelector((state) => state.cars);
   useEffect(() => {
     dispatch(fetchCars());
   }, []);
   return (
     <section className="py-10 md:hidden">
       <Carousel showThumbs={false} showIndicators={false} showStatus={false}>
-        {cars.map((car) => (
-          <CarouselItem key={car.id} />
+        {cars.cars.map((car) => (
+          <CarouselItem key={car.id} car={car} />
         ))}
       </Carousel>
     </section>
@@ -24,7 +24,7 @@ export const CarouselMobile = () => {
 
 export const CarouselDesktop = () => {
   const dispatch = useDispatch();
-  const cars = useSelector((state) => state.cars.cars);
+  const cars = useSelector((state) => state.cars);
   useEffect(() => {
     dispatch(fetchCars());
   }, []);
@@ -38,8 +38,8 @@ export const CarouselDesktop = () => {
         centerMode
         centerSlidePercentage={45}
       >
-        {cars.map((car) => (
-          <CarouselItem key={car.id} />
+        {cars.cars.map((car) => (
+          <CarouselItem key={car.id} car={car} />
         ))}
       </Carousel>
     </section>
