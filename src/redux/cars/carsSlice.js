@@ -2,6 +2,7 @@ import { createSlice, createAsyncThunk } from '@reduxjs/toolkit';
 
 const initialState = {
   cars: [],
+  isLoading: false,
 };
 
 export const fetchCars = createAsyncThunk('cars/fetchCars', async () => {
@@ -21,7 +22,13 @@ export const carsSlice = createSlice({
     },
   },
   extraReducers: (builder) => {
+    builder.addCase(fetchCars.pending, (state) => {
+      // eslint-disable-next-line no-param-reassign
+      state.isLoading = true;
+    });
     builder.addCase(fetchCars.fulfilled, (state, action) => {
+      // eslint-disable-next-line no-param-reassign
+      state.isLoading = false;
       // eslint-disable-next-line no-param-reassign
       state.cars = action.payload;
     });
