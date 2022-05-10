@@ -1,34 +1,50 @@
 import 'react-responsive-carousel/lib/styles/carousel.min.css'; // requires a loader
+import { useEffect } from 'react';
+import { useDispatch, useSelector } from 'react-redux';
 import { Carousel } from 'react-responsive-carousel';
 import CarouselItem from './CarouselItem';
+import { fetchCars } from '../redux/cars/carsSlice';
 
-export const CarouselMobile = () => (
-  <section className="py-10 md:hidden">
-    <Carousel showThumbs={false} showIndicators={false} showStatus={false}>
-      <CarouselItem />
-      <CarouselItem />
-      <CarouselItem />
-      <CarouselItem />
-    </Carousel>
-  </section>
-);
+export const CarouselMobile = () => {
+  const dispatch = useDispatch();
+  const cars = useSelector((state) => state.cars.cars);
+  useEffect(() => {
+    dispatch(fetchCars());
+  }, []);
+  return (
+    <section className="py-10 md:hidden">
+      <Carousel showThumbs={false} showIndicators={false} showStatus={false}>
+        {cars.map((car) => (
+          <CarouselItem key={car.id} />
+        ))}
+      </Carousel>
+    </section>
+  );
+};
 
-export const CarouselDesktop = () => (
-  <section className="py-10 hidden md:block">
-    <Carousel
-      showThumbs={false}
-      showIndicators={false}
-      showStatus={false}
-      centerMode
-      centerSlidePercentage={45}
-    >
-      <CarouselItem />
-      <CarouselItem />
-      <CarouselItem />
-      <CarouselItem />
-    </Carousel>
-  </section>
-);
+export const CarouselDesktop = () => {
+  const dispatch = useDispatch();
+  const cars = useSelector((state) => state.cars.cars);
+  useEffect(() => {
+    dispatch(fetchCars());
+  }, []);
+
+  return (
+    <section className="py-10 hidden md:block">
+      <Carousel
+        showThumbs={false}
+        showIndicators={false}
+        showStatus={false}
+        centerMode
+        centerSlidePercentage={45}
+      >
+        {cars.map((car) => (
+          <CarouselItem key={car.id} />
+        ))}
+      </Carousel>
+    </section>
+  );
+};
 
 const ResponsiveCarousel = () => (
   <>
