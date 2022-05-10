@@ -15,8 +15,8 @@ const NavItem = ({ link, closeMenu, children }) => (
 NavItem.propTypes = {
   link: PropTypes.string.isRequired,
   closeMenu: PropTypes.func,
-  children: PropTypes.arrayOf(PropTypes.element),
+  children: PropTypes.string,
 };
-NavItem.defaultProps = { closeMenu: null, children: [] };
+NavItem.defaultProps = { closeMenu: null, children: '' };
 
 export default NavItem;
