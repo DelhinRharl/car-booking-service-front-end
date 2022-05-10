@@ -2,7 +2,7 @@ import React from 'react';
 import carImageBig from '../images/car-big.png';
 
 const CarDetails = () => (
-  <div className="flex flex-col gap-[30%] p-2 items-center justify-center">
+  <div className="flex flex-col gap-[30%] p-2 items-center justify-center md:w-4/5">
     <div className="flex  justify-center  w-full">
       <h1 className="font-semibold text-2xl">MERCEDES 2022</h1>
     </div>
