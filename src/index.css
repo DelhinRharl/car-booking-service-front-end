@@ -9,7 +9,7 @@ body {
 }
 
 a.active {
-  @apply bg-yellow-400 text-white;
+  @apply bg-amber-500 text-white;
 }
 
 .carousel .control-arrow,
