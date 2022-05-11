@@ -1,15 +1,17 @@
 import { Link } from 'react-router-dom';
 import PropTypes from 'prop-types';
-import carImageSmall from '../images/car-small.png';
 
 const CarouselItem = ({ car }) => {
-  const { make, model, id } = car;
+  const {
+    id, make, model, image,
+  } = car;
+
   return (
     <Link to={`/cars/${id}`}>
       <div className="hover:opacity-60">
         <div className="bg-amber-500 w-52 h-52 rounded-full mx-auto relative mb-10">
           <div className="absolute -left-3/4 top-1/2 translate-x-1/2 -translate-y-1/2 w-[130%]">
-            <img src={carImageSmall} alt="car" />
+            <img src={image} alt="car" />
           </div>
         </div>
         <div className="max-w-[240px] mx-auto">
