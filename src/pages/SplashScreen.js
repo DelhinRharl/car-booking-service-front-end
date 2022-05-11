@@ -7,11 +7,11 @@ const SplashScreen = () => (
       BOOK YOUR PREMIUM CAR
       <span className="block">EASILY</span>
     </h1>
-    <Link to="/sign-in">
+    <Link to="/signin">
       <PrimaryButton>Sign In</PrimaryButton>
     </Link>
     <Link
-      to="/sign-up"
+      to="/signup"
       className="font-bold uppercase md:text-2xl -mt-4 hover:opacity-60"
     >
       Sign up
