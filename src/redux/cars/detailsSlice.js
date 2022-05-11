@@ -6,7 +6,7 @@ const initialState = {
 };
 
 export const fetchSingleCar = createAsyncThunk(`cars/fetchDetails`, async () => {
-  const res = await fetch(`http://localhost:3000/api/v1/cars/${id}`);
+  const res = await fetch(`http://localhost:3000/api/v1/cars/1 `);
   const data = await res.json();
   console.log(data);
   return data;
