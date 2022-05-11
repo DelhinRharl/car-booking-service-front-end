@@ -24,3 +24,13 @@ a.active {
 .carousel .control-prev.control-arrow::before {
   @apply border-r-black !important;
 }
+
+.splash-screen {
+  background:
+    linear-gradient(0deg, rgba(0, 0, 0, 0.6), rgba(0, 0, 0, 0.4)),
+    url('./images/car-big.png'),
+    linear-gradient(0deg, rgba(253, 172, 1, 1), rgba(253, 172, 1, 1));
+  background-size: 200%;
+  background-repeat: no-repeat;
+  background-position: right;
+}
