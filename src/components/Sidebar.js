@@ -11,7 +11,7 @@ const Sidebar = () => {
 
   return (
     <>
-      <header className="md:hidden py-5">
+      <header className="md:hidden py-5 fixed z-20">
         <HamburgerIcon className="w-10" onClick={openMenu} />
       </header>
       <div
