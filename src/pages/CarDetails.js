@@ -1,4 +1,5 @@
 import React from 'react';
+import { Link } from 'react-router-dom';
 import carImageBig from '../images/car-big.png';
 
 const CarDetails = () => (
@@ -22,9 +23,14 @@ const CarDetails = () => (
           <p>Contact: +65 98765432</p>
         </div>
         <div>
-          <button type="button" className="bg-amber-500    hover:bg-amber-600/80 text-white font-bold py-2 px-4 rounded w-52">
-            Reserve
-          </button>
+          <Link to="/reserve">
+            <button
+              type="button"
+              className="bg-amber-500    hover:bg-amber-600/80 text-white font-bold py-2 px-4 rounded w-52"
+            >
+              Reserve
+            </button>
+          </Link>
         </div>
         <span />
       </div>
