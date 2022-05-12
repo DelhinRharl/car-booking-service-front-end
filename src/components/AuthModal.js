@@ -1,6 +1,8 @@
 /* eslint-disable react/jsx-props-no-spreading */
 import PropTypes from 'prop-types';
 import { useForm } from 'react-hook-form';
+import { useDispatch } from 'react-redux';
+import { logUserIn } from '../redux/users/userSlice';
 import FormError from './FormError';
 import PrimaryButton from './PrimaryButton';
 
@@ -11,12 +13,16 @@ const AuthModal = ({ isLogin = true, closeModal }) => {
     formState: { errors },
   } = useForm();
 
+  const dispatch = useDispatch();
+
   const onSubmit = (data) => {
     if (isLogin) {
       console.log('make a post req to /login', JSON.stringify(data));
     } else {
       console.log('make a post req to /signup', JSON.stringify(data));
     }
+
+    dispatch(logUserIn());
   };
 
   return (
