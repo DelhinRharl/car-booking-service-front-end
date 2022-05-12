@@ -1,6 +1,7 @@
 /* eslint-disable react/jsx-props-no-spreading */
 import PropTypes from 'prop-types';
 import { useForm } from 'react-hook-form';
+import FormError from './FormError';
 import PrimaryButton from './PrimaryButton';
 
 const AuthModal = ({ isLogin = true, closeModal }) => {
@@ -43,14 +44,18 @@ const AuthModal = ({ isLogin = true, closeModal }) => {
             className="border w-full p-2 rounded-sm"
           />
         )}
-        {errors.name?.type === 'required' && <p>Must provide a name</p>}
+        {errors.name?.type === 'required' && (
+          <FormError>Must provide a name</FormError>
+        )}
         <input
           type="email"
           {...register('email', { required: true, maxLength: 50 })}
           placeholder="Email"
           className="border w-full p-2 rounded-sm"
         />
-        {errors.email?.type === 'required' && <p>Must provide an email</p>}
+        {errors.email?.type === 'required' && (
+          <FormError>Must provide an email</FormError>
+        )}
         <input
           type="password"
           {...register('password', { required: true, minLength: 6 })}
@@ -58,9 +63,11 @@ const AuthModal = ({ isLogin = true, closeModal }) => {
           className="border w-full p-2 rounded-sm"
         />
         {errors.password?.type === 'minLength' && (
-          <p>Password must be at least 6 characters</p>
+          <FormError>Password must be at least 6 characters</FormError>
         )}
-        {errors.password?.type === 'required' && <p>Must provide a password</p>}
+        {errors.password?.type === 'required' && (
+          <FormError>Must provide a password</FormError>
+        )}
         {!isLogin && (
           <input
             type="password"
@@ -70,7 +77,7 @@ const AuthModal = ({ isLogin = true, closeModal }) => {
           />
         )}
         {errors.passwordConfirm?.type === 'required' && (
-          <p>Must provide a password</p>
+          <FormError>Must provide a password</FormError>
         )}
         <PrimaryButton btnType="submit">
           {isLogin ? 'Login' : 'Sign up'}
