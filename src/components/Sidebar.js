@@ -40,6 +40,9 @@ const Sidebar = () => {
               <NavItem link="/reserve" closeMenu={closeMenu}>
                 Reserve
               </NavItem>
+              <NavItem link="/my-reservations" closeMenu={closeMenu}>
+                My Reservations
+              </NavItem>
               <NavItem link="/sign-out" closeMenu={closeMenu}>
                 Sign Out
               </NavItem>
