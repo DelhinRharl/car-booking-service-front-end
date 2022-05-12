@@ -1,36 +1,48 @@
 import { useState } from 'react';
+import AuthModal from '../components/AuthModal';
 import PrimaryButton from '../components/PrimaryButton';
 
 const SplashScreen = () => {
   const [isLoginModalOpen, setIsLoginModalOpen] = useState(false);
   const [isSignUpModalOpen, setIsSignUpModalOpen] = useState(false);
 
-  const openLoginModal = () => {
-    setIsLoginModalOpen(true);
+  const openAuthModal = (isLogin = true) => {
+    if (isLogin) {
+      setIsLoginModalOpen(true);
+      setIsSignUpModalOpen(false);
+    } else {
+      setIsLoginModalOpen(false);
+      setIsSignUpModalOpen(true);
+    }
+  };
+
+  const closeModal = () => {
+    setIsLoginModalOpen(false);
     setIsSignUpModalOpen(false);
   };
 
-  const openSignUpModal = () => {
-    setIsSignUpModalOpen(true);
-    setIsLoginModalOpen(false);
-  };
-
   return (
-    <section className="splash-screen w-full h-full text-white flex flex-col items-center justify-center gap-12">
+    <section className="splash-screen w-full min-h-screen text-white flex flex-col items-center justify-center gap-12 py-10">
       <h1 className="font-bold text-center text-4xl md:text-5xl lg:text-7xl">
         BOOK YOUR PREMIUM CAR
         <span className="block">EASILY</span>
       </h1>
-      {isLoginModalOpen && <h2>login</h2>}
-      {isSignUpModalOpen && <h2>sign up</h2>}
-      <PrimaryButton onClick={openLoginModal}>Sign In</PrimaryButton>
-      <button
-        className="font-bold uppercase md:text-2xl -mt-4 hover:opacity-60"
-        type="button"
-        onClick={openSignUpModal}
-      >
-        Sign up
-      </button>
+      {isLoginModalOpen && <AuthModal closeModal={closeModal} />}
+      {isSignUpModalOpen && (
+        <AuthModal isLogin={false} closeModal={closeModal} />
+      )}
+      {!(isLoginModalOpen || isSignUpModalOpen) && (
+        <>
+          <PrimaryButton onClick={openAuthModal}>Sign In</PrimaryButton>
+          <button
+            className="font-bold uppercase -mt-4 hover:opacity-60"
+            type="button"
+            onClick={openAuthModal.bind(this, false)}
+          >
+            Sign up
+          </button>
+        </>
+      )}
     </section>
   );
 };
