@@ -8,9 +8,11 @@ import { fetchCars } from '../redux/cars/carsSlice';
 export const CarouselMobile = () => {
   const dispatch = useDispatch();
   const cars = useSelector((state) => state.cars);
+
   useEffect(() => {
     dispatch(fetchCars());
   }, []);
+
   return (
     <section className="py-10 md:hidden">
       <Carousel showThumbs={false} showIndicators={false} showStatus={false}>
@@ -25,8 +27,9 @@ export const CarouselMobile = () => {
 export const CarouselDesktop = () => {
   const dispatch = useDispatch();
   const cars = useSelector((state) => state.cars);
+
   useEffect(() => {
-    dispatch(fetchCars());
+    if (cars.length > 0) dispatch(fetchCars());
   }, []);
 
   return (
