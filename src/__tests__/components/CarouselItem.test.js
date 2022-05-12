@@ -1,13 +1,16 @@
 import { BrowserRouter } from 'react-router-dom';
 import { render, screen } from '@testing-library/react';
 import CarouselItem from '../../components/CarouselItem';
-import carImageSmall from '../../images/car-small.png';
 
 describe('Carousel Component', () => {
   it('should render the carousel item wrapped in a link with the correct path', () => {
     render(
       <BrowserRouter>
-        <CarouselItem />
+        <CarouselItem
+          car={{
+            id: 1, make: 'Mercedes ', model: '2022', image: 'image',
+          }}
+        />
       </BrowserRouter>,
     );
     const link = screen.getByRole('link');
@@ -18,17 +21,25 @@ describe('Carousel Component', () => {
   it('should render the correct image', () => {
     render(
       <BrowserRouter>
-        <CarouselItem />
+        <CarouselItem
+          car={{
+            id: 1, make: 'Mercedes ', model: '2022', image: 'image',
+          }}
+        />
       </BrowserRouter>,
     );
     const image = screen.getByRole('img');
-    expect(image).toHaveAttribute('src', carImageSmall);
+    expect(image).toHaveAttribute('src', 'image');
   });
 
   it('should render the correct heading', () => {
     render(
       <BrowserRouter>
-        <CarouselItem />
+        <CarouselItem
+          car={{
+            id: 1, make: 'Mercedes ', model: '2022', image: 'image',
+          }}
+        />
       </BrowserRouter>,
     );
 
@@ -39,7 +50,11 @@ describe('Carousel Component', () => {
   it('should render the correct description', () => {
     render(
       <BrowserRouter>
-        <CarouselItem />
+        <CarouselItem
+          car={{
+            id: 1, make: 'Mercedes ', model: '2022', image: 'image',
+          }}
+        />
       </BrowserRouter>,
     );
 
