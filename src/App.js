@@ -3,9 +3,8 @@ import { Routes, Route } from 'react-router-dom';
 import Sidebar from './components/Sidebar';
 import CarDetails from './pages/CarDetails';
 import HomePage from './pages/HomePage';
+import MyReservations from './pages/MyReserations';
 import ReservePage from './pages/reserve';
-import SignInPage from './pages/SignIn';
-import SigUpPage from './pages/SignUp';
 import SplashScreen from './pages/SplashScreen';
 
 function App() {
@@ -24,8 +23,7 @@ function App() {
         />
         <Route path="/cars/:carId" element={<CarDetails />} />
         <Route path="/reserve" element={<ReservePage />} />
-        <Route path="/signin" element={<SignInPage />} />
-        <Route path="/signup" element={<SigUpPage />} />
+        <Route path="/my-reservations" element={<MyReservations />} />
       </Routes>
     </main>
   );
