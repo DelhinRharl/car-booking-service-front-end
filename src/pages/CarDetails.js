@@ -52,9 +52,9 @@ const CarDetails = () => {
             </div>
             <div>
               <Link to="/reserve">
-              <button type="button" className="bg-amber-500    hover:bg-amber-600/80 text-white font-bold py-2 px-4 rounded w-52">
-                RESERVE
-              </button>
+                <button type="button" className="bg-amber-500    hover:bg-amber-600/80 text-white font-bold py-2 px-4 rounded w-52">
+                  RESERVE
+                </button>
               </Link>
             </div>
             <span />
