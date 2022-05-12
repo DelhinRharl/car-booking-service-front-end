@@ -1,7 +1,7 @@
 import { createSlice } from '@reduxjs/toolkit';
 
 const initialState = {
-  isLoggedIn: true,
+  isLoggedIn: false,
 };
 
 export const userSlice = createSlice({
