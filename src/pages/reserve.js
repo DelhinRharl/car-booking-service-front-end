@@ -1,4 +1,5 @@
 import { useEffect, useState } from 'react';
+import axios from 'axios';
 
 const ReservePage = () => {
   const [models, setModels] = useState([]);
@@ -11,14 +12,14 @@ const ReservePage = () => {
         model: `${el.make} - ${el.model}`,
       }));
       setModels(models);
-      console.log(data);
     })();
   }, []);
   const handleSubmit = (event) => {
     event.preventDefault();
-    console.log(event.target.car_id.value);
-    console.log(event.target.user_id.value);
-    // method="POST" action="http://localhost:3000/api/v1/reservations"
+    axios.post('http://localhost:3000/api/v1/reservations', {
+      car_id: event.target.car_id.value,
+      user_id: event.target.user_id.value,
+    });
   };
   return (
     <section className="fixed top-0 w-full h-full md:pl-[20vw] bg-[url('/src/images/car-medium.png')] md:bg-[url('/src/images/car-big.png')] bg-right bg-no-repeat bg-200%">
