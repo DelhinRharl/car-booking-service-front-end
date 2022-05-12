@@ -29,11 +29,17 @@ const ReservePage = () => {
             MAKE YOUR RESERVATION
           </h1>
           <form onSubmit={handleSubmit} className="w-full h-full text-center flex flex-col items-center gap-[2rem] md:flex-row lg:w-[70%] md:h-auto">
-            <select className="w-[80%] sm:w-[40%] h-[2.6rem] rounded-3xl bg-transparent border border-2 border-white font-bold text-xl text-white text-center" name="city" id="city">
+            <select className="w-[80%] sm:w-[40%] h-[2.6rem] rounded-3xl bg-transparent border border-2 border-white font-bold text-xl text-white text-center" name="reservation[city]" id="city">
               <option value="" selected disabled hidden>CITY</option>
-              <option value="new-york">New York</option>
-              <option value="york">York</option>
-              <option value="washingtone">Washingtone</option>
+              <option value="New York">New York</option>
+              <option value="York">York</option>
+              <option value="Washingtone">Washingtone</option>
+              <option value="Salt Lake">Salt Lake</option>
+              <option value="Los Angeles">Los Angeles</option>
+              <option value="New Mexico">New Mexico</option>
+              <option value="Chicago">Chicago</option>
+              <option value="Phoenix">Phoenix</option>
+              <option value="San Antonio">San Antonio</option>
             </select>
             <input type="hidden" id="user_id" name="reservation[user_id]" value="2" />
             <select className="w-[80%] sm:w-[40%] h-[2.6rem] rounded-3xl bg-transparent border border-2 border-white font-bold text-xl text-white text-center" name="reservation[car_id]" id="car_id">
