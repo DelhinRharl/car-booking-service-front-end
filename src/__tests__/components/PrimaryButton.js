@@ -23,4 +23,24 @@ describe('PrimaryButton Component', () => {
     const button = screen.getByRole('button');
     expect(button).toHaveTextContent('Test button');
   });
+
+  it('should have a default type button', () => {
+    render(
+      <BrowserRouter>
+        <PrimaryButton>Test button</PrimaryButton>
+      </BrowserRouter>,
+    );
+    const button = screen.getByRole('button');
+    expect(button).toHaveAttribute('type', 'button');
+  });
+
+  it('should have a provided type', () => {
+    render(
+      <BrowserRouter>
+        <PrimaryButton btnType="submit">Test button</PrimaryButton>
+      </BrowserRouter>,
+    );
+    const button = screen.getByRole('button');
+    expect(button).toHaveAttribute('type', 'submit');
+  });
 });
