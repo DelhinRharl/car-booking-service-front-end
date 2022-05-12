@@ -11,7 +11,7 @@ import SplashScreen from './pages/SplashScreen';
 function App() {
   const { isLoggedIn } = useSelector((state) => state.user);
   return (
-    <main className="md:flex h-screen">
+    <main className="md:flex min-h-screen">
       {isLoggedIn && <Sidebar />}
       <Routes>
         {/*
