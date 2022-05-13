@@ -17,21 +17,32 @@ const AuthModal = ({ isLogin = true, closeModal }) => {
 
   const dispatch = useDispatch();
 
-  const onSubmit = (data) => {
+  const onSubmit = async (data) => {
     const body = JSON.stringify(data);
 
     if (isLogin) {
-      requestLogin(body);
+      const { user, token } = await requestLogin(body);
+
+      if (!(user && token)) {
+        console.log('User not found');
+        return;
+      }
+      localStorage.setItem('token', token);
+      dispatch(logUserIn(user));
     } else {
       if (data.password !== data.passwordConfirm) {
         alert('Passwords do not match');
         return;
       }
 
-      requestRegisterUser(body);
-    }
+      const user = await requestRegisterUser(body);
+      if (!user) {
+        alert('User already registered!');
+        return;
+      }
 
-    // dispatch(logUserIn());
+      alert('User registered successfully!');
+    }
   };
 
   return (

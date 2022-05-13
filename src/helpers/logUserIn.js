@@ -9,7 +9,12 @@ const requestLogin = async (body) => {
 
   const data = await res.json();
 
-  console.log(data);
+  if (data.error) {
+    alert(data.error);
+    return { user: undefined, token: undefined };
+  }
+
+  return data;
 };
 
 export default requestLogin;
