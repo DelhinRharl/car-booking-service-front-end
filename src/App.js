@@ -1,6 +1,7 @@
 import { useEffect } from 'react';
 import { useDispatch, useSelector } from 'react-redux';
 import { Routes, Route } from 'react-router-dom';
+import ProtectedRoute from './components/ProtectedRoute';
 import Sidebar from './components/Sidebar';
 import authenticateUser from './helpers/authentication';
 import CarDetails from './pages/CarDetails';
@@ -37,9 +38,30 @@ function App() {
           element={isLoggedIn ? <HomePage /> : <SplashScreen />}
         />
         <Route path="/cars/:carId" element={<CarDetails />} />
-        <Route path="/reserve" element={<ReservePage />} />
-        <Route path="/my-reservations" element={<MyReservations />} />
-        <Route path="/admin/manage-cars" element={<h1>Manage cars</h1>} />
+        <Route
+          path="/reserve"
+          element={(
+            <ProtectedRoute>
+              <ReservePage />
+            </ProtectedRoute>
+          )}
+        />
+        <Route
+          path="/my-reservations"
+          element={(
+            <ProtectedRoute>
+              <MyReservations />
+            </ProtectedRoute>
+          )}
+        />
+        <Route
+          path="/admin/manage-cars"
+          element={(
+            <ProtectedRoute>
+              <h1>Manage cars</h1>
+            </ProtectedRoute>
+          )}
+        />
       </Routes>
     </main>
   );
