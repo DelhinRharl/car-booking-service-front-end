@@ -2,6 +2,8 @@
 import PropTypes from 'prop-types';
 import { useForm } from 'react-hook-form';
 import { useDispatch } from 'react-redux';
+import requestLogin from '../helpers/logUserIn';
+import requestRegisterUser from '../helpers/registerUser';
 import { logUserIn } from '../redux/users/userSlice';
 import FormError from './FormError';
 import PrimaryButton from './PrimaryButton';
@@ -15,14 +17,35 @@ const AuthModal = ({ isLogin = true, closeModal }) => {
 
   const dispatch = useDispatch();
 
-  const onSubmit = (data) => {
-    if (isLogin) {
-      console.log('make a post req to /login', JSON.stringify(data));
-    } else {
-      console.log('make a post req to /signup', JSON.stringify(data));
-    }
+  const onSubmit = async (data) => {
+    const body = JSON.stringify(data);
 
-    dispatch(logUserIn());
+    if (isLogin) {
+      const { user, token } = await requestLogin(body);
+
+      if (!(user && token)) {
+        console.log('User not found');
+        return;
+      }
+      localStorage.setItem('token', token);
+      dispatch(logUserIn(user));
+    } else {
+      if (data.password !== data.passwordConfirm) {
+        alert('Passwords do not match');
+        return;
+      }
+
+      const user = await requestRegisterUser(body);
+      if (!user) {
+        alert('User already registered!');
+        return;
+      }
+
+      alert('User registered successfully!');
+      const { token } = await requestLogin(body);
+      localStorage.setItem('token', token);
+      dispatch(logUserIn(user));
+    }
   };
 
   return (
