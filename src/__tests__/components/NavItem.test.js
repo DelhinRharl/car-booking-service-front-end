@@ -32,4 +32,43 @@ describe('NavItem component', () => {
     const link = screen.getByRole('link');
     expect(link).toHaveTextContent('Test link');
   });
+
+  it('should render the button', () => {
+    const handleLogOut = () => {};
+    render(
+      <BrowserRouter>
+        <NavItem link="/" handleLogOut={handleLogOut}>
+          Test button
+        </NavItem>
+      </BrowserRouter>,
+    );
+    const button = screen.getByRole('button');
+    expect(button).toHaveTextContent('Test button');
+  });
+
+  it('should render the type button', () => {
+    const handleLogOut = () => {};
+    render(
+      <BrowserRouter>
+        <NavItem link="/" handleLogOut={handleLogOut}>
+          Test button
+        </NavItem>
+      </BrowserRouter>,
+    );
+    const button = screen.getByRole('button');
+    expect(button).toHaveAttribute('type', 'button');
+  });
+
+  it('should not be a link', () => {
+    const handleLogOut = () => {};
+    render(
+      <BrowserRouter>
+        <NavItem link="/" handleLogOut={handleLogOut}>
+          Test button
+        </NavItem>
+      </BrowserRouter>,
+    );
+    const button = screen.getByRole('button');
+    expect(button).not.toHaveAttribute('src');
+  });
 });
