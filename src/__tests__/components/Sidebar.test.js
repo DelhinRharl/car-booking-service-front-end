@@ -14,7 +14,7 @@ describe('Sidebar component', () => {
     expect(aside).toBeInTheDocument();
   });
 
-  it('should render the 3 links of the sidebar', () => {
+  it('should render the 4 links of the sidebar', () => {
     render(
       <BrowserRouter>
         <Sidebar />
@@ -22,7 +22,7 @@ describe('Sidebar component', () => {
     );
 
     const links = screen.getAllByRole('link');
-    expect(links.length).toBe(3);
+    expect(links.length).toBe(4);
   });
 
   it('The content should be rendered', () => {
@@ -35,6 +35,7 @@ describe('Sidebar component', () => {
     const links = screen.getAllByRole('link');
     expect(links[0]).toHaveTextContent('Models');
     expect(links[1]).toHaveTextContent('Reserve');
-    expect(links[2]).toHaveTextContent('Sign Out');
+    expect(links[2]).toHaveTextContent('My reservations');
+    expect(links[3]).toHaveTextContent('Sign Out');
   });
 });

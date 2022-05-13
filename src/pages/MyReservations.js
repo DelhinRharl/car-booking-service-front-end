@@ -4,7 +4,7 @@ const MyReservations = () => {
   const [reservations, setReservations] = useState([]);
   useEffect(() => {
     (async () => {
-      const res = await fetch('http://localhost:3000/api/v1/reservations');
+      const res = await fetch(`http://localhost:3000/api/v1/users/${2}/reservations`);
       const data = await res.json();
       setReservations(data);
     })();
