@@ -17,12 +17,24 @@ const AuthModal = ({ isLogin = true, closeModal }) => {
 
   const onSubmit = (data) => {
     if (isLogin) {
-      console.log('make a post req to /login', JSON.stringify(data));
+      const body = JSON.stringify(data);
+
+      fetch('http://127.0.0.1:3000/api/v1/login', {
+        method: 'POST',
+        headers: {
+          'Content-Type': 'application/json',
+        },
+        body,
+      })
+        .then((response) => response.json())
+        .then((data) => {
+          console.log(data);
+        });
     } else {
-      console.log('make a post req to /signup', JSON.stringify(data));
+      console.log('make a post req to /signup', data);
     }
 
-    dispatch(logUserIn());
+    // dispatch(logUserIn());
   };
 
   return (
