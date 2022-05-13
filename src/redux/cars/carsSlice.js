@@ -8,7 +8,6 @@ const initialState = {
 export const fetchCars = createAsyncThunk('cars/fetchCars', async () => {
   const res = await fetch('http://localhost:3000/api/v1/cars');
   const data = await res.json();
-  console.log(data);
   return data;
 });
 

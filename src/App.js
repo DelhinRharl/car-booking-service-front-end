@@ -1,15 +1,29 @@
-import { useSelector } from 'react-redux';
+import { useEffect } from 'react';
+import { useDispatch, useSelector } from 'react-redux';
 import { Routes, Route } from 'react-router-dom';
 import Sidebar from './components/Sidebar';
+import authenticateUser from './helpers/authentication';
 import CarDetails from './pages/CarDetails';
 import HomePage from './pages/HomePage';
+import MyReservations from './pages/MyReserations';
 import ReservePage from './pages/reserve';
-import SignInPage from './pages/SignIn';
-import SigUpPage from './pages/SignUp';
 import SplashScreen from './pages/SplashScreen';
+import { logUserIn } from './redux/users/userSlice';
 
 function App() {
   const { isLoggedIn } = useSelector((state) => state.user);
+  const dispatch = useDispatch();
+
+  const setUser = async (token) => {
+    const user = await authenticateUser(token);
+    dispatch(logUserIn(user));
+  };
+
+  useEffect(() => {
+    const token = localStorage.getItem('token');
+    if (token) setUser(token);
+  }, []);
+
   return (
     <main className="md:flex min-h-screen">
       {isLoggedIn && <Sidebar />}
@@ -24,8 +38,7 @@ function App() {
         />
         <Route path="/cars/:carId" element={<CarDetails />} />
         <Route path="/reserve" element={<ReservePage />} />
-        <Route path="/signin" element={<SignInPage />} />
-        <Route path="/signup" element={<SigUpPage />} />
+        <Route path="/my-reservations" element={<MyReservations />} />
       </Routes>
     </main>
   );

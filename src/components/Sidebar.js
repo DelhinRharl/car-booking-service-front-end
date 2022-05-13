@@ -1,4 +1,6 @@
 import { useState } from 'react';
+import { useDispatch } from 'react-redux';
+import { logUserOut } from '../redux/users/userSlice';
 import CloseIcon from './CloseIcon';
 import HamburgerIcon from './HamburgerIcon';
 import NavItem from './NavItem';
@@ -8,6 +10,12 @@ const Sidebar = () => {
 
   const openMenu = () => setIsMenuOpen(true);
   const closeMenu = () => setIsMenuOpen(false);
+
+  const dispatch = useDispatch();
+  const handleLogOut = () => {
+    dispatch(logUserOut());
+    localStorage.removeItem('token');
+  };
 
   return (
     <>
@@ -40,7 +48,10 @@ const Sidebar = () => {
               <NavItem link="/reserve" closeMenu={closeMenu}>
                 Reserve
               </NavItem>
-              <NavItem link="/sign-out" closeMenu={closeMenu}>
+              <NavItem link="/my-reservations" closeMenu={closeMenu}>
+                My reservations
+              </NavItem>
+              <NavItem link="/sign-out" handleLogOut={handleLogOut}>
                 Sign Out
               </NavItem>
             </ul>
