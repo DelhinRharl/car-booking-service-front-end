@@ -42,6 +42,9 @@ const AuthModal = ({ isLogin = true, closeModal }) => {
       }
 
       alert('User registered successfully!');
+      const { token } = await requestLogin(body);
+      localStorage.setItem('token', token);
+      dispatch(logUserIn(user));
     }
   };
 
