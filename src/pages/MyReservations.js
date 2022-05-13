@@ -10,11 +10,11 @@ const MyReservations = () => {
     })();
   }, []);
   return (
-    <section className="">
-      <h1 className="font-bold text-white text-3xl md:text-5xl md:mb-5">
+    <section className="w-full h-full text-center flex flex-col items-center pt-20">
+      <h1 className="font-bold text-3xl md:text-5xl md:mb-5">
         MY RESERVATIONS
       </h1>
-      <table>
+      <table className="sm:w-[80%]">
         <thead>
           <tr>
             <th>City</th>
@@ -27,7 +27,7 @@ const MyReservations = () => {
             <tr key={reservation.id}>
               <td>{reservation.city}</td>
               <td>{reservation.car_model}</td>
-              <td>{reservation.created_at}</td>
+              <td>{new Date(reservation.created_at).toLocaleDateString('en-UK')}</td>
             </tr>
           ))}
         </tbody>
