@@ -1,8 +1,10 @@
 import { useEffect, useState } from 'react';
 import axios from 'axios';
+import { useSelector } from 'react-redux';
 
 const ReservePage = () => {
   const [models, setModels] = useState([]);
+  const user = useSelector((state) => state.user.user);
   useEffect(() => {
     (async () => {
       const res = await fetch('http://localhost:3000/api/v1/cars');
@@ -16,10 +18,13 @@ const ReservePage = () => {
   }, []);
   const handleSubmit = (event) => {
     event.preventDefault();
-    axios.post('http://localhost:3000/api/v1/reservations', {
-      car_id: event.target.car_id.value,
-      user_id: event.target.user_id.value,
-    });
+    if (event.target.city.value && event.target.car_id.value) {
+      axios.post(`http://localhost:3000/api/v1/users/${user.id}/reservations`, {
+        city: event.target.city.value,
+        car_id: event.target.car_id.value,
+        user_id: user.id,
+      });
+    }
   };
   return (
     <section className="fixed top-0 w-full h-full md:pl-[20vw] bg-[url('/src/images/car-medium.png')] md:bg-[url('/src/images/car-big.png')] bg-right bg-no-repeat bg-200%">
@@ -41,7 +46,6 @@ const ReservePage = () => {
               <option value="Phoenix">Phoenix</option>
               <option value="San Antonio">San Antonio</option>
             </select>
-            <input type="hidden" id="user_id" name="reservation[user_id]" value="2" />
             <select className="w-[80%] sm:w-[40%] h-[2.6rem] rounded-3xl bg-transparent border border-2 border-white font-bold text-xl text-white text-center" name="reservation[car_id]" id="car_id">
               <option value="" selected disabled hidden>MODEL</option>
               {models.map((model) => (
