@@ -39,6 +39,7 @@ function App() {
         <Route path="/cars/:carId" element={<CarDetails />} />
         <Route path="/reserve" element={<ReservePage />} />
         <Route path="/my-reservations" element={<MyReservations />} />
+        <Route path="/admin/manage-cars" element={<h1>Manage cars</h1>} />
       </Routes>
     </main>
   );
