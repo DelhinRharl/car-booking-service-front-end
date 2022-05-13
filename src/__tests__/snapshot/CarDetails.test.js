@@ -3,7 +3,6 @@ import { BrowserRouter } from 'react-router-dom';
 import '@testing-library/jest-dom';
 import CarDetails from '../../pages/CarDetails';
 
-
 describe('CarDetails component', () => {
   it('should render the  page correctly ', () => {
     const header = render(
