@@ -1,10 +1,12 @@
 import { useEffect, useState } from 'react';
+import { useSelector } from 'react-redux';
 
 const MyReservations = () => {
   const [reservations, setReservations] = useState([]);
+  const user = useSelector((state) => state.user.user);
   useEffect(() => {
     (async () => {
-      const res = await fetch(`http://localhost:3000/api/v1/users/${2}/reservations`);
+      const res = await fetch(`http://localhost:3000/api/v1/users/${user.id}/reservations`);
       const data = await res.json();
       setReservations(data);
     })();
