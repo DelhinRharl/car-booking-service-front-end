@@ -16,9 +16,9 @@ const AuthModal = ({ isLogin = true, closeModal }) => {
   const dispatch = useDispatch();
 
   const onSubmit = (data) => {
-    if (isLogin) {
-      const body = JSON.stringify(data);
+    const body = JSON.stringify(data);
 
+    if (isLogin) {
       fetch('http://127.0.0.1:3000/api/v1/login', {
         method: 'POST',
         headers: {
@@ -32,6 +32,21 @@ const AuthModal = ({ isLogin = true, closeModal }) => {
         });
     } else {
       console.log('make a post req to /signup', data);
+      if (data.password !== data.passwordConfirm) {
+        alert('Passwords do not match');
+        return;
+      }
+
+      fetch('http://127.0.0.1:3000/api/v1/users', {
+        method: 'POST',
+        headers: { 'Content-Type': 'application/json' },
+        body,
+      })
+        .then((response) => response.json())
+        .then((data) => {
+          alert('user has been created. you can now log in!');
+          closeModal();
+        });
     }
 
     // dispatch(logUserIn());
