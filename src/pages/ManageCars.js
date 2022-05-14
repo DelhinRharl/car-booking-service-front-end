@@ -22,7 +22,7 @@ const ManageCars = () => {
       </h1>
       <form
         onSubmit={handleSubmit(onSubmit)}
-        className="flex flex-col items-start justify-center w-4/5 max-w-xl mx-auto gap-5 mb-10"
+        className="flex flex-col items-start justify-center w-4/5 max-w-xl mx-auto gap-5 mb-10 md:mb-20"
       >
         <input
           type="text"
@@ -66,7 +66,7 @@ const ManageCars = () => {
           rows="8"
         />
         {errors.description && <FormError>Must fill out this field</FormError>}
-        <PrimaryButton btnType="submit">submit</PrimaryButton>
+        <PrimaryButton btnType="submit">add car</PrimaryButton>
       </form>
       <CarsList />
     </section>
