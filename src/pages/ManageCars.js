@@ -1,4 +1,5 @@
 /* eslint-disable react/jsx-props-no-spreading */
+import { useState } from 'react';
 import { useForm } from 'react-hook-form';
 import { useDispatch } from 'react-redux';
 import CarsList from '../components/CarsList';
@@ -11,20 +12,34 @@ const ManageCars = () => {
     register,
     handleSubmit,
     formState: { errors },
+    reset,
   } = useForm();
+
+  const [formSuccess, setFormSuccess] = useState(false);
 
   const dispatch = useDispatch();
 
   const onSubmit = (data) => {
     const body = { car: { ...data } };
     dispatch(addCar(body));
+    reset();
+    setFormSuccess(true);
+    setTimeout(() => setFormSuccess(false), 3000);
   };
 
   return (
     <section className="w-full md:w-4/5 pt-20 md:py-20 overflow-y-auto h-screen">
-      <h1 className="font-bold text-2xl md:text-5xl text-center uppercase mb-10 md:mb-20">
+      <h1 className="font-bold text-2xl md:text-5xl text-center uppercase mb-10">
         Manage cars
       </h1>
+      <p
+        className={`text-green-600 text-center my-2 opacity-0 transition-opacity ${
+          formSuccess && 'opacity-100'
+        }`}
+      >
+        Added successfully
+      </p>
+
       <form
         onSubmit={handleSubmit(onSubmit)}
         className="flex flex-col items-start justify-center w-4/5 max-w-xl mx-auto gap-5 mb-10 md:mb-20"
