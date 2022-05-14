@@ -3,7 +3,7 @@ import PropTypes from 'prop-types';
 
 const CarouselItem = ({ car }) => {
   const {
-    id, make, model, image,
+    id, make, model, image, description,
   } = car;
 
   return (
@@ -20,8 +20,7 @@ const CarouselItem = ({ car }) => {
             <span>{model}</span>
           </h2>
           <p className="text-sm text-gray-400">
-            Lorem ipsum dolor sit amet, consectetur adipiscing elit. Donec
-            pharetra, magna.
+            {description}
           </p>
         </div>
       </div>
