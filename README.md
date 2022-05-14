@@ -1,70 +1,118 @@
-# Getting Started with Create React App
+# Car Booking Service
+## Built With
 
-This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
+- Ruby
+- Ruby on Rails
+- ReactJS
+- Redux Toolkit
 
-## Available Scripts
+## Getting Started
 
-In the project directory, you can run:
+- Getting a local copy is simple. Follow the steps below
 
-### `npm start`
+### Install
 
-Runs the app in the development mode.\
-Open [http://localhost:3000](http://localhost:3000) to view it in your browser.
+- Ruby
+- Ruby on Rails
+- PostgresSQL
+- Rspec
 
-The page will reload when you make changes.\
-You may also see any lint errors in the console.
+### Local Copy
 
-### `npm test`
+- Clone the project
 
-Launches the test runner in the interactive watch mode.\
-See the section about [running tests](https://facebook.github.io/create-react-app/docs/running-tests) for more information.
+```
+git clone https://github.com/DelhinRharl/car-booking-service-backend-end
+git clone https://github.com/DelhinRharl/car-booking-service-front-end
 
-### `npm run build`
 
-Builds the app for production to the `build` folder.\
-It correctly bundles React in production mode and optimizes the build for the best performance.
+```
 
-The build is minified and the filenames include the hashes.\
-Your app is ready to be deployed!
+### Setup
 
-See the section about [deployment](https://facebook.github.io/create-react-app/docs/deployment) for more information.
+- In two separate windows
 
-### `npm run eject`
+### For the backend
 
-**Note: this is a one-way operation. Once you `eject`, you can't go back!**
+Install gems:
 
-If you aren't satisfied with the build tool and configuration choices, you can `eject` at any time. This command will remove the single build dependency from your project.
+```
+bundle install
+```
 
-Instead, it will copy all the configuration files and the transitive dependencies (webpack, Babel, ESLint, etc) right into your project so you have full control over them. All of the commands except `eject` will still work, but they will point to the copied scripts so you can tweak them. At this point you're on your own.
+Setup database:
 
-You don't have to ever use `eject`. The curated feature set is suitable for small and middle deployments, and you shouldn't feel obligated to use this feature. However we understand that this tool wouldn't be useful if you couldn't customize it when you are ready for it.
+```
+rails db:create
+rails db:migrate
+rais db:seed
+```
 
-## Learn More
+### For the frontend
 
-You can learn more in the [Create React App documentation](https://facebook.github.io/create-react-app/docs/getting-started).
+```
+npm install
 
-To learn React, check out the [React documentation](https://reactjs.org/).
+```
 
-### Code Splitting
+### Usage
 
-This section has moved here: [https://facebook.github.io/create-react-app/docs/code-splitting](https://facebook.github.io/create-react-app/docs/code-splitting)
+Start server(backend):
 
-### Analyzing the Bundle Size
+```
+rails server
+```
 
-This section has moved here: [https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size](https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size)
+Start server(frontend): 
+```
+npm start
 
-### Making a Progressive Web App
+Visit http://localhost:3000/ in your browser in the case of backend.
+The front end app will open automatically to the default browser
 
-This section has moved here: [https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app](https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app)
+## Authors
 
-### Advanced Configuration
+👤 **Anuar Shaidenov**
 
-This section has moved here: [https://facebook.github.io/create-react-app/docs/advanced-configuration](https://facebook.github.io/create-react-app/docs/advanced-configuration)
+- GitHub: [@anuarshaidenov](https://github.com/anuarshaidenov)
+- Twitter: [@anuarnyi](https://twitter.com/anuarnyi)
+- LinkedIn: [Anuar Shaidenov](https://www.linkedin.com/in/anuar-shaidenov-365a951b8/)
 
-### Deployment
+👤 **Affaxed Kiprotich**
 
-This section has moved here: [https://facebook.github.io/create-react-app/docs/deployment](https://facebook.github.io/create-react-app/docs/deployment)
+- GitHub: [@DelhinRharl](https://github.com/DelhinRharl)
+- Twitter: [@affax-kiprotich](https://twitter.com/affax-kiprotich)
+- LinkedIn: [Affaxed Kiprotich](https://www.linkedin.com/in/affaxed-kiprotich/)
+ 
+ 👤 **Charles Gobina**
 
-### `npm run build` fails to minify
+- GitHub: [@charlesgobina](https://github.com/charlesgobina)
+- Twitter: [@charles_gobina](https://twitter.com/charles_gobina)
+- LinkedIn: [Charles Gobina](https://www.linkedin.com/in/charlesgobina/)
 
-This section has moved here: [https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify](https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify)
+
+👤 **Kevin Koome**
+
+- GitHub: [@koomekevo](https://github.com/koomekevo)
+- Twitter: [@koomekevo](https://twitter.com/koomekevo)
+- LinkedIn: [LinkedIn](https://ke.linkedin.com/in/kevin-koome-aab84186)
+
+👤 Bohdan Shcherbak
+
+- GitHub: [@akucintavalent](https://github.com/akucintavalent)
+- Twitter: [@ibodi828](https://twitter.com/ibodi828)
+- LinkedIn: [LinkedIn](https://www.linkedin.com/in/bohdan-shcherbak/)
+
+## 🅰️ Acknowledgements
+
+The design template is provided by 
+[Creative Commons](https://creativecommons.org/)
+
+
+## 🤝 Contributing
+
+Contributions, issues, and feature requests are welcome!
+
+## Show your support
+
+Give a ⭐️ if you like this project!

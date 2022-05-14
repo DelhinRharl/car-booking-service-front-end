@@ -40,15 +40,16 @@ const CarDetails = () => {
             </div>
           </div>
           <div className="flex flex-col justify-center items-center gap-4">
-            <p className="w-[70%] ">Lorem ipsum, dolor sit amet consectetur adipisicing elit. Error, tempora eligendi! Nesciunt quibusdam autem, numquam velit quo aliquam, porro vero quae recusandae maiores error exercitationem quidem natus voluptatem ab placeat.</p>
+            <p className="w-[70%] ">
+              {' '}
+              {car.description }
+              {' '}
+            </p>
             <div className="w-[70%] ">
               <p>
                 Price:
                 {car.price}
               </p>
-              <p>Fuel: Electric</p>
-              <p>Location: Singapore, 12th Lane Rd.</p>
-              <p>Contact: +65 98765432</p>
             </div>
             <div>
               <Link to="/reserve">
