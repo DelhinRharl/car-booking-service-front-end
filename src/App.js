@@ -5,7 +5,7 @@ import Sidebar from './components/Sidebar';
 import authenticateUser from './helpers/authentication';
 import CarDetails from './pages/CarDetails';
 import HomePage from './pages/HomePage';
-import MyReservations from './pages/MyReserations';
+import MyReservations from './pages/MyReservations';
 import ReservePage from './pages/reserve';
 import SplashScreen from './pages/SplashScreen';
 import { logUserIn } from './redux/users/userSlice';
