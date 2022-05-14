@@ -11,6 +11,19 @@ export const fetchCars = createAsyncThunk('cars/fetchCars', async () => {
   return data;
 });
 
+export const addCar = createAsyncThunk('cars/addCar', async (body) => {
+  const res = await fetch('http://localhost:3000/api/v1/cars/', {
+    method: 'POST',
+    headers: { 'Content-Type': 'application/json' },
+    body: JSON.stringify(body),
+  });
+  const data = await res.json();
+
+  return data;
+});
+
+export const deleteCar = createAsyncThunk('cars/deleteCar', async () => {});
+
 export const carsSlice = createSlice({
   name: 'cars',
   initialState,
@@ -30,6 +43,9 @@ export const carsSlice = createSlice({
       state.isLoading = false;
       // eslint-disable-next-line no-param-reassign
       state.cars = action.payload;
+    });
+    builder.addCase(addCar.fulfilled, (state, action) => {
+      state.cars.push(action.payload);
     });
   },
 });

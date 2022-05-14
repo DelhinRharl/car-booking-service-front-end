@@ -1,8 +1,10 @@
 /* eslint-disable react/jsx-props-no-spreading */
 import { useForm } from 'react-hook-form';
+import { useDispatch } from 'react-redux';
 import CarsList from '../components/CarsList';
 import FormError from '../components/FormError';
 import PrimaryButton from '../components/PrimaryButton';
+import { addCar } from '../redux/cars/carsSlice';
 
 const ManageCars = () => {
   const {
@@ -11,8 +13,11 @@ const ManageCars = () => {
     formState: { errors },
   } = useForm();
 
+  const dispatch = useDispatch();
+
   const onSubmit = (data) => {
-    console.log(data);
+    const body = { car: { ...data } };
+    dispatch(addCar(body));
   };
 
   return (
