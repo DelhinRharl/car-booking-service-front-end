@@ -1,5 +1,6 @@
 /* eslint-disable react/jsx-props-no-spreading */
 import { useForm } from 'react-hook-form';
+import CarsList from '../components/CarsList';
 import FormError from '../components/FormError';
 import PrimaryButton from '../components/PrimaryButton';
 
@@ -21,7 +22,7 @@ const ManageCars = () => {
       </h1>
       <form
         onSubmit={handleSubmit(onSubmit)}
-        className="flex flex-col items-start justify-center w-4/5 max-w-xl mx-auto gap-5"
+        className="flex flex-col items-start justify-center w-4/5 max-w-xl mx-auto gap-5 mb-10"
       >
         <input
           type="text"
@@ -67,6 +68,7 @@ const ManageCars = () => {
         {errors.description && <FormError>Must fill out this field</FormError>}
         <PrimaryButton btnType="submit">submit</PrimaryButton>
       </form>
+      <CarsList />
     </section>
   );
 };
