@@ -1,5 +1,5 @@
 import { useState } from 'react';
-import { useDispatch } from 'react-redux';
+import { useDispatch, useSelector } from 'react-redux';
 import { logUserOut } from '../redux/users/userSlice';
 import CloseIcon from './CloseIcon';
 import HamburgerIcon from './HamburgerIcon';
@@ -10,6 +10,8 @@ const Sidebar = () => {
 
   const openMenu = () => setIsMenuOpen(true);
   const closeMenu = () => setIsMenuOpen(false);
+
+  const currentUser = useSelector((state) => state.user.user);
 
   const dispatch = useDispatch();
   const handleLogOut = () => {
@@ -51,6 +53,11 @@ const Sidebar = () => {
               <NavItem link="/my-reservations" closeMenu={closeMenu}>
                 My reservations
               </NavItem>
+              {currentUser?.admin && (
+                <NavItem link="/admin/manage-cars" closeMenu={closeMenu}>
+                  Manage Cars
+                </NavItem>
+              )}
               <NavItem link="/sign-out" handleLogOut={handleLogOut}>
                 Sign Out
               </NavItem>

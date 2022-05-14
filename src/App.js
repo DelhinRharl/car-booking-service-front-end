@@ -1,10 +1,12 @@
 import { useEffect } from 'react';
 import { useDispatch, useSelector } from 'react-redux';
 import { Routes, Route } from 'react-router-dom';
+import ProtectedRoute from './components/ProtectedRoute';
 import Sidebar from './components/Sidebar';
 import authenticateUser from './helpers/authentication';
 import CarDetails from './pages/CarDetails';
 import HomePage from './pages/HomePage';
+import ManageCars from './pages/ManageCars';
 import MyReservations from './pages/MyReservations';
 import ReservePage from './pages/reserve';
 import SplashScreen from './pages/SplashScreen';
@@ -37,8 +39,30 @@ function App() {
           element={isLoggedIn ? <HomePage /> : <SplashScreen />}
         />
         <Route path="/cars/:carId" element={<CarDetails />} />
-        <Route path="/reserve" element={<ReservePage />} />
-        <Route path="/my-reservations" element={<MyReservations />} />
+        <Route
+          path="/reserve"
+          element={(
+            <ProtectedRoute>
+              <ReservePage />
+            </ProtectedRoute>
+          )}
+        />
+        <Route
+          path="/my-reservations"
+          element={(
+            <ProtectedRoute>
+              <MyReservations />
+            </ProtectedRoute>
+          )}
+        />
+        <Route
+          path="/admin/manage-cars"
+          element={(
+            <ProtectedRoute>
+              <ManageCars />
+            </ProtectedRoute>
+          )}
+        />
       </Routes>
     </main>
   );
