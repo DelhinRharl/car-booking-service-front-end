@@ -22,7 +22,16 @@ export const addCar = createAsyncThunk('cars/addCar', async (body) => {
   return data;
 });
 
-export const deleteCar = createAsyncThunk('cars/deleteCar', async () => {});
+export const deleteCar = createAsyncThunk('cars/deleteCar', async (id) => {
+  const res = await fetch(`http://localhost:3000/api/v1/cars/${id}`, {
+    method: 'DELETE',
+    headers: { 'Content-Type': 'application/json' },
+  });
+
+  const data = await res.json();
+
+  return Number(data);
+});
 
 export const carsSlice = createSlice({
   name: 'cars',
@@ -46,6 +55,10 @@ export const carsSlice = createSlice({
     });
     builder.addCase(addCar.fulfilled, (state, action) => {
       state.cars.push(action.payload);
+    });
+    builder.addCase(deleteCar.fulfilled, (state, action) => {
+      // eslint-disable-next-line no-param-reassign
+      state.cars = state.cars.filter((car) => car.id !== action.payload);
     });
   },
 });
