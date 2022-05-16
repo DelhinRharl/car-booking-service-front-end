@@ -36,6 +36,13 @@ const ReservePage = () => {
           <h1 className="font-bold text-white text-3xl md:text-5xl md:mb-5">
             MAKE YOUR RESERVATION
           </h1>
+          <p
+            className={`text-green-600 text-center my-2 opacity-0 transition-opacity ${
+              formSubmitted && 'opacity-100'
+            }`}
+          >
+            Temporary message
+          </p>
           <form onSubmit={handleSubmit} className="w-full h-full text-center flex flex-col items-center gap-[2rem] md:flex-row lg:w-[70%] md:h-auto">
             <select className="w-[80%] sm:w-[40%] h-[2.6rem] rounded-3xl bg-transparent border border-2 border-white font-bold text-xl text-white text-center" name="reservation[city]" id="city">
               <option value="" selected disabled hidden>CITY</option>
