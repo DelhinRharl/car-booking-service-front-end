@@ -2,6 +2,7 @@
 import PropTypes from 'prop-types';
 import { useForm } from 'react-hook-form';
 import { useDispatch } from 'react-redux';
+import { useLocation, useNavigate } from 'react-router-dom';
 import requestLogin from '../helpers/logUserIn';
 import requestRegisterUser from '../helpers/registerUser';
 import { logUserIn } from '../redux/users/userSlice';
@@ -14,6 +15,9 @@ const AuthModal = ({ isLogin = true, closeModal }) => {
     handleSubmit,
     formState: { errors },
   } = useForm();
+
+  const { state } = useLocation();
+  const navigate = useNavigate();
 
   const dispatch = useDispatch();
 
@@ -29,6 +33,7 @@ const AuthModal = ({ isLogin = true, closeModal }) => {
       }
       localStorage.setItem('token', token);
       dispatch(logUserIn(user));
+      navigate(state?.path || '/');
     } else {
       if (data.password !== data.passwordConfirm) {
         alert('Passwords do not match');

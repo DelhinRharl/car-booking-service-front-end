@@ -6,13 +6,15 @@ const MyReservations = () => {
   const user = useSelector((state) => state.user.user);
   useEffect(() => {
     (async () => {
-      const res = await fetch(`http://localhost:3000/api/v1/users/${user.id}/reservations`);
+      const res = await fetch(
+        `http://localhost:3000/api/v1/users/${user.id}/reservations`,
+      );
       const data = await res.json();
       setReservations(data);
     })();
   }, []);
   return (
-    <section className="w-full h-full text-center flex flex-col items-center pt-20">
+    <section className="h-full text-center flex flex-col items-center pt-20 w-4/5">
       <h1 className="font-bold text-3xl md:text-5xl md:mb-5">
         MY RESERVATIONS
       </h1>
@@ -29,7 +31,9 @@ const MyReservations = () => {
             <tr key={reservation.id}>
               <td>{reservation.city}</td>
               <td>{reservation.car_model}</td>
-              <td>{new Date(reservation.created_at).toLocaleDateString('en-UK')}</td>
+              <td>
+                {new Date(reservation.created_at).toLocaleDateString('en-UK')}
+              </td>
             </tr>
           ))}
         </tbody>
