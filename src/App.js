@@ -1,6 +1,8 @@
 import { useEffect } from 'react';
 import { useDispatch, useSelector } from 'react-redux';
-import { Routes, Route } from 'react-router-dom';
+import {
+  Routes, Route, useLocation, useNavigate,
+} from 'react-router-dom';
 import ProtectedRoute from './components/ProtectedRoute';
 import Sidebar from './components/Sidebar';
 import authenticateUser from './helpers/authentication';
@@ -15,10 +17,13 @@ import { logUserIn } from './redux/users/userSlice';
 function App() {
   const { isLoggedIn } = useSelector((state) => state.user);
   const dispatch = useDispatch();
+  const { pathname } = useLocation();
+  const navigate = useNavigate();
 
   const setUser = async (token) => {
     const user = await authenticateUser(token);
     dispatch(logUserIn(user));
+    navigate(`${pathname}`);
   };
 
   useEffect(() => {
