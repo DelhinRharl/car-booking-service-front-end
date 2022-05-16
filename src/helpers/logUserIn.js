@@ -10,7 +10,7 @@ const requestLogin = async (body) => {
   const data = await res.json();
 
   if (data.error) {
-    alert(data.error);
+    console.log(data.error);
     return { user: undefined, token: undefined };
   }
 
