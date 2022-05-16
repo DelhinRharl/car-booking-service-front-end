@@ -1,5 +1,6 @@
 /* eslint-disable react/jsx-props-no-spreading */
 import PropTypes from 'prop-types';
+import { useState } from 'react';
 import { useForm } from 'react-hook-form';
 import { useDispatch } from 'react-redux';
 import { useLocation, useNavigate } from 'react-router-dom';
@@ -29,7 +30,7 @@ const AuthModal = ({ isLogin = true, closeModal }) => {
       const { user, token } = await requestLogin(body);
 
       if (!(user && token)) {
-        console.log('User not found');
+        setOnFormSubmitMessage('User not found');
         return;
       }
       localStorage.setItem('token', token);
@@ -37,17 +38,16 @@ const AuthModal = ({ isLogin = true, closeModal }) => {
       navigate(state?.path || '/');
     } else {
       if (data.password !== data.passwordConfirm) {
-        alert('Passwords do not match');
+        setOnFormSubmitMessage('Passwords do not match');
         return;
       }
 
       const user = await requestRegisterUser(body);
       if (!user) {
-        alert('User already registered!');
+        setOnFormSubmitMessage('User already registered!');
         return;
       }
 
-      alert('User registered successfully!');
       const { token } = await requestLogin(body);
       localStorage.setItem('token', token);
       dispatch(logUserIn(user));
