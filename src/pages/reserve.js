@@ -17,6 +17,7 @@ const ReservePage = () => {
     })();
   }, []);
   const [formSubmitted, setFormSubmitted] = useState(false);
+  const [onFormSubmitMessage, setOnFormSubmitMessage] = useState('Form submission failed. Make sure to fill all the fields.');
   const handleSubmit = (event) => {
     event.preventDefault();
     setFormSubmitted(true);
@@ -26,6 +27,8 @@ const ReservePage = () => {
         city: event.target.city.value,
         car_id: event.target.car_id.value,
         user_id: user.id,
+      }).then(() => {
+        setOnFormSubmitMessage('Form submission succeeded.');
       });
     }
   };
@@ -36,13 +39,19 @@ const ReservePage = () => {
           <h1 className="font-bold text-white text-3xl md:text-5xl md:mb-5">
             MAKE YOUR RESERVATION
           </h1>
-          <p
+          {formSubmitted && (
+            <div className="bg-gray-100 border border-gray-400 text-gray-700 px-4 py-3 rounded fixed top-4" role="alert">
+              <span className="block sm:inline">{onFormSubmitMessage}</span>
+            </div>
+          )}
+
+          {/* <p
             className={`text-green-600 text-center my-2 opacity-0 transition-opacity ${
               formSubmitted && 'opacity-100'
             }`}
           >
-            Temporary message
-          </p>
+            {onFormSubmitMessage}
+          </p> */}
           <form onSubmit={handleSubmit} className="w-full h-full text-center flex flex-col items-center gap-[2rem] md:flex-row lg:w-[70%] md:h-auto">
             <select className="w-[80%] sm:w-[40%] h-[2.6rem] rounded-3xl bg-transparent border border-2 border-white font-bold text-xl text-white text-center" name="reservation[city]" id="city">
               <option value="" selected disabled hidden>CITY</option>
