@@ -40,7 +40,7 @@ const ReservePage = () => {
             MAKE YOUR RESERVATION
           </h1>
           {formSubmitted && (
-            <div className="bg-gray-100 border border-gray-400 text-gray-700 px-4 py-3 rounded fixed top-4" role="alert">
+            <div className="bg-orange-100 border border-orange-400 text-orange-700 px-4 py-3 rounded fixed top-4" role="alert">
               <span className="block sm:inline">{onFormSubmitMessage}</span>
             </div>
           )}
