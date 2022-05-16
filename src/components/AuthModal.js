@@ -20,6 +20,7 @@ const AuthModal = ({ isLogin = true, closeModal }) => {
   const navigate = useNavigate();
 
   const dispatch = useDispatch();
+  const [onFormSubmitMessage, setOnFormSubmitMessage] = useState('');
 
   const onSubmit = async (data) => {
     const body = JSON.stringify(data);
