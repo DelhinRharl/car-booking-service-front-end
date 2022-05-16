@@ -19,6 +19,8 @@ const ReservePage = () => {
   const [formSubmitted, setFormSubmitted] = useState(false);
   const handleSubmit = (event) => {
     event.preventDefault();
+    setFormSubmitted(true);
+    setTimeout(() => setFormSubmitted(false), 3000);
     if (event.target.city.value && event.target.car_id.value && user.id) {
       axios.post(`http://localhost:3000/api/v1/users/${user.id}/reservations`, {
         city: event.target.city.value,
