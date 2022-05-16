@@ -16,13 +16,19 @@ const ReservePage = () => {
       setModels(models);
     })();
   }, []);
+  const [formSubmitted, setFormSubmitted] = useState(false);
+  const [onFormSubmitMessage, setOnFormSubmitMessage] = useState('Form submission failed. Make sure to fill all the fields.');
   const handleSubmit = (event) => {
     event.preventDefault();
-    if (event.target.city.value && event.target.car_id.value) {
+    setFormSubmitted(true);
+    setTimeout(() => setFormSubmitted(false), 3000);
+    if (event.target.city.value && event.target.car_id.value && user.id) {
       axios.post(`http://localhost:3000/api/v1/users/${user.id}/reservations`, {
         city: event.target.city.value,
         car_id: event.target.car_id.value,
         user_id: user.id,
+      }).then(() => {
+        setOnFormSubmitMessage('Form submission succeeded.');
       });
     }
   };
@@ -33,6 +39,11 @@ const ReservePage = () => {
           <h1 className="font-bold text-white text-3xl md:text-5xl md:mb-5">
             MAKE YOUR RESERVATION
           </h1>
+          {formSubmitted && (
+            <div className="bg-orange-100 border border-orange-400 text-orange-700 px-4 py-3 rounded fixed top-4" role="alert">
+              <span className="block sm:inline">{onFormSubmitMessage}</span>
+            </div>
+          )}
           <form onSubmit={handleSubmit} className="w-full h-full text-center flex flex-col items-center gap-[2rem] md:flex-row lg:w-[70%] md:h-auto">
             <select className="w-[80%] sm:w-[40%] h-[2.6rem] rounded-3xl bg-transparent border border-2 border-white font-bold text-xl text-white text-center" name="reservation[city]" id="city">
               <option value="" selected disabled hidden>CITY</option>
