@@ -23,7 +23,7 @@ export const addCar = createAsyncThunk('cars/addCar', async (body) => {
 });
 
 export const deleteCar = createAsyncThunk('cars/deleteCar', async (id) => {
-  const res = await fetch(`http://localhost:3000/api/v1/cars/${id}`, {
+  const res = await fetch(`https://car-booking-premium.herokuapp.com/api/v1/cars/${id}`, {
     method: 'DELETE',
     headers: { 'Content-Type': 'application/json' },
   });
