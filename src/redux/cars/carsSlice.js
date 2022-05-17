@@ -12,7 +12,7 @@ export const fetchCars = createAsyncThunk('cars/fetchCars', async () => {
 });
 
 export const addCar = createAsyncThunk('cars/addCar', async (body) => {
-  const res = await fetch('http://localhost:3000/api/v1/cars/', {
+  const res = await fetch('https://car-booking-premium.herokuapp.com/api/v1/cars/', {
     method: 'POST',
     headers: { 'Content-Type': 'application/json' },
     body: JSON.stringify(body),
