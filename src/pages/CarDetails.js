@@ -5,7 +5,7 @@ const CarDetails = () => {
   const { carId } = useParams();
   const [car, setCar] = useState({});
   const fetchCar = async () => {
-    const res = await fetch(`http://localhost:3000/api/v1/cars/${carId}`);
+    const res = await fetch(`https://car-booking-premium.herokuapp.com/api/v1/cars/${carId}`);
     const data = await res.json();
     setCar(data);
   };
