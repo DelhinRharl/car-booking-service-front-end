@@ -6,7 +6,7 @@ const initialState = {
 };
 
 export const fetchCars = createAsyncThunk('cars/fetchCars', async () => {
-  const res = await fetch('http://localhost:3000/api/v1/cars');
+  const res = await fetch('https://car-booking-premium.herokuapp.com/api/v1/cars');
   const data = await res.json();
   return data;
 });
