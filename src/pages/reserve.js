@@ -7,7 +7,7 @@ const ReservePage = () => {
   const user = useSelector((state) => state.user.user);
   useEffect(() => {
     (async () => {
-      const res = await fetch('http://localhost:3000/api/v1/cars');
+      const res = await fetch('https://car-booking-premium.herokuapp.com/api/v1/cars');
       const data = await res.json();
       const models = data.map((el) => ({
         car_id: el.id,
