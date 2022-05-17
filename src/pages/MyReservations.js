@@ -7,7 +7,7 @@ const MyReservations = () => {
   useEffect(() => {
     (async () => {
       const res = await fetch(
-        `http://localhost:3000/api/v1/users/${user.id}/reservations`,
+        `https://car-booking-premium.herokuapp.com/api/v1/users/${user.id}/reservations`,
       );
       const data = await res.json();
       setReservations(data);
