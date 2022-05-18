@@ -2,12 +2,12 @@
 
 
 ## Live Versions
-[Front-End](https://62841455ea5ce52646803a1c--tangerine-faloodeh-288b4c.netlify.app/)
-[Back-end](https://car-booking-premium.herokuapp.com)
+- [Front-End](https://62841455ea5ce52646803a1c--tangerine-faloodeh-288b4c.netlify.app/)
+- [Back-end](https://car-booking-premium.herokuapp.com)
 
 ## Link to the backend
 
-[Backend](https://github.com/DelhinRharl/car-booking-service-back-end)
+- [Backend](https://github.com/DelhinRharl/car-booking-service-back-end)
 ## Built With
 
 - Ruby
