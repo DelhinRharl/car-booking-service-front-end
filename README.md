@@ -79,6 +79,8 @@ npm start
 Visit http://localhost:3000/ in your browser in the case of backend.
 The front end app will open automatically to the default browser
 
+```
+
 ## Authors
 
 👤 **Anuar Shaidenov**
