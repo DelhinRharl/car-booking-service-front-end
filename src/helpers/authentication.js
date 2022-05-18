@@ -1,5 +1,5 @@
 const authenticateUser = async (token) => {
-  const res = await fetch('http://127.0.0.1:3000/api/v1/login', {
+  const res = await fetch('https://car-booking-premium.herokuapp.com/api/v1/login', {
     headers: {
       'Content-Type': 'application/json',
       Authenticate: token,

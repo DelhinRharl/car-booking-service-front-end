@@ -7,7 +7,7 @@ const ReservePage = () => {
   const user = useSelector((state) => state.user.user);
   useEffect(() => {
     (async () => {
-      const res = await fetch('http://localhost:3000/api/v1/cars');
+      const res = await fetch('https://car-booking-premium.herokuapp.com/api/v1/cars');
       const data = await res.json();
       const models = data.map((el) => ({
         car_id: el.id,
@@ -23,7 +23,7 @@ const ReservePage = () => {
     setFormSubmitted(true);
     setTimeout(() => setFormSubmitted(false), 3000);
     if (event.target.city.value && event.target.car_id.value && user.id) {
-      axios.post(`http://localhost:3000/api/v1/users/${user.id}/reservations`, {
+      axios.post(`https://car-booking-premium.herokuapp.com/api/v1/users/${user.id}/reservations`, {
         city: event.target.city.value,
         car_id: event.target.car_id.value,
         user_id: user.id,
