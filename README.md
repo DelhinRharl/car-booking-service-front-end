@@ -6,7 +6,7 @@
 
 ## Live Versions
 
-- [Front-End](https://62841455ea5ce52646803a1c--tangerine-faloodeh-288b4c.netlify.app/)
+- [Front-End](https://deploy-preview-37--willowy-empanada-95e169.netlify.app/)
 - [Back-end](https://car-booking-premium.herokuapp.com)
 
 ## Link to the backend
