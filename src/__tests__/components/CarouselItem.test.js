@@ -1,17 +1,26 @@
 import { BrowserRouter } from 'react-router-dom';
 import { render, screen } from '@testing-library/react';
+import { Provider } from 'react-redux';
 import CarouselItem from '../../components/CarouselItem';
+import store from '../../redux/store';
 
 describe('Carousel Component', () => {
   it('should render the carousel item wrapped in a link with the correct path', () => {
     render(
-      <BrowserRouter>
-        <CarouselItem
-          car={{
-            id: 1, make: 'Mercedes ', model: '2022', image: 'image',
-          }}
-        />
-      </BrowserRouter>,
+      <Provider store={store}>
+        <BrowserRouter>
+          <CarouselItem
+            car={{
+              id: 1,
+              make: 'Mercedes ',
+              model: '2022',
+              image: 'image',
+              description:
+                'kdapkdpkdpkdapdkpadkpdkadpdkpdakpdakdapkadpdkpkdpkdapakdpdkapdkpakdpkdpkdapadkpadkpdakdpakdapkdapkad',
+            }}
+          />
+        </BrowserRouter>
+      </Provider>,
     );
     const link = screen.getByRole('link');
     expect(link).toHaveAttribute('href', '/cars/1');
@@ -20,13 +29,20 @@ describe('Carousel Component', () => {
 
   it('should render the correct image', () => {
     render(
-      <BrowserRouter>
-        <CarouselItem
-          car={{
-            id: 1, make: 'Mercedes ', model: '2022', image: 'image',
-          }}
-        />
-      </BrowserRouter>,
+      <Provider store={store}>
+        <BrowserRouter>
+          <CarouselItem
+            car={{
+              id: 1,
+              make: 'Mercedes ',
+              model: '2022',
+              image: 'image',
+              description: 'fjosajofajfoasjosafjfoajoasjoasj',
+            }}
+          />
+        </BrowserRouter>
+        ,
+      </Provider>,
     );
     const image = screen.getByRole('img');
     expect(image).toHaveAttribute('src', 'image');
@@ -34,13 +50,19 @@ describe('Carousel Component', () => {
 
   it('should render the correct heading', () => {
     render(
-      <BrowserRouter>
-        <CarouselItem
-          car={{
-            id: 1, make: 'Mercedes ', model: '2022', image: 'image',
-          }}
-        />
-      </BrowserRouter>,
+      <Provider store={store}>
+        <BrowserRouter>
+          <CarouselItem
+            car={{
+              id: 1,
+              make: 'Mercedes ',
+              model: '2022',
+              image: 'image',
+              description: 'fjosajofajfoasjosafjfoajoasjoasj',
+            }}
+          />
+        </BrowserRouter>
+      </Provider>,
     );
 
     const heading = screen.getByRole('heading');
@@ -49,13 +71,20 @@ describe('Carousel Component', () => {
 
   it('should render the correct description', () => {
     render(
-      <BrowserRouter>
-        <CarouselItem
-          car={{
-            id: 1, make: 'Mercedes ', model: '2022', image: 'image',
-          }}
-        />
-      </BrowserRouter>,
+      <Provider store={store}>
+        <BrowserRouter>
+          <CarouselItem
+            car={{
+              id: 1,
+              make: 'Mercedes ',
+              model: '2022',
+              image: 'image',
+              description:
+                'Lorem ipsum dolor sit amet, consectetur adipiscing elit. Donec',
+            }}
+          />
+        </BrowserRouter>
+      </Provider>,
     );
 
     const paragraph = screen.getByText(

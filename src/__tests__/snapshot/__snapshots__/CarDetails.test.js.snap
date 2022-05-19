@@ -50,22 +50,14 @@ Object {
               <p
                 class="w-[70%] "
               >
-                Lorem ipsum, dolor sit amet consectetur adipisicing elit. Error, tempora eligendi! Nesciunt quibusdam autem, numquam velit quo aliquam, porro vero quae recusandae maiores error exercitationem quidem natus voluptatem ab placeat.
+                 
+                 
               </p>
               <div
                 class="w-[70%] "
               >
                 <p>
                   Price:
-                </p>
-                <p>
-                  Fuel: Electric
-                </p>
-                <p>
-                  Location: Singapore, 12th Lane Rd.
-                </p>
-                <p>
-                  Contact: +65 98765432
                 </p>
               </div>
               <div>
@@ -133,22 +125,14 @@ Object {
             <p
               class="w-[70%] "
             >
-              Lorem ipsum, dolor sit amet consectetur adipisicing elit. Error, tempora eligendi! Nesciunt quibusdam autem, numquam velit quo aliquam, porro vero quae recusandae maiores error exercitationem quidem natus voluptatem ab placeat.
+               
+               
             </p>
             <div
               class="w-[70%] "
             >
               <p>
                 Price:
-              </p>
-              <p>
-                Fuel: Electric
-              </p>
-              <p>
-                Location: Singapore, 12th Lane Rd.
-              </p>
-              <p>
-                Contact: +65 98765432
               </p>
             </div>
             <div>
