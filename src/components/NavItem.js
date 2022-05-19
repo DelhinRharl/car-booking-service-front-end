@@ -9,7 +9,7 @@ const NavItem = ({
       <li className="text-center">
         <NavLink
           to={link}
-          className="uppercase font-bold block w-full h-full py-4 transition-colors duration-300"
+          className="uppercase font-bold block w-full h-full py-4 transition-colors duration-300 hover:bg-amber-200"
           onClick={closeMenu}
         >
           {children}
@@ -22,7 +22,7 @@ const NavItem = ({
     <li className="text-center">
       <button
         type="button"
-        className="uppercase font-bold block w-full h-full py-4 transition-colors duration-300"
+        className="uppercase font-bold block w-full h-full py-4 transition-colors duration-300 hover:bg-amber-200"
         onClick={handleLogOut}
       >
         {children}

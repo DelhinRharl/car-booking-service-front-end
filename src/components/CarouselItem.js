@@ -20,7 +20,7 @@ const CarouselItem = ({ car }) => {
             <span>{model}</span>
           </h2>
           <p className="text-sm text-gray-400">
-            {description}
+            {`${description.slice(0, 100)}...`}
           </p>
         </div>
       </div>

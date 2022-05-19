@@ -1,19 +1,23 @@
 # Car Booking Service
 
+![Screenshot](./screenshot.png)
+![Screenshot](./screenshot-0.png)
+![Screenshot](./screenshot-1.png)
 
 ## Live Versions
+
 - [Front-End](https://62841455ea5ce52646803a1c--tangerine-faloodeh-288b4c.netlify.app/)
 - [Back-end](https://car-booking-premium.herokuapp.com)
 
 ## Link to the backend
 
 - [Backend](https://github.com/DelhinRharl/car-booking-service-back-end)
+
 ## Built With
 
-- Ruby
-- Ruby on Rails
 - ReactJS
 - Redux Toolkit
+- TailwindCSS
 
 ## Getting Started
 
@@ -21,64 +25,38 @@
 
 ### Install
 
-- Ruby
-- Ruby on Rails
-- PostgresSQL
-- Rspec
+- Node
+- npm
+- git
 
 ### Local Copy
 
 - Clone the project
 
 ```
-git clone https://github.com/DelhinRharl/car-booking-service-backend-end
 git clone https://github.com/DelhinRharl/car-booking-service-front-end
-
-
 ```
 
-### Setup
-
-- In two separate windows
-
-### For the backend
-
-Install gems:
-
-```
-bundle install
-```
-
-Setup database:
-
-```
-rails db:create
-rails db:migrate
-rais db:seed
-```
+## Setup
 
 ### For the frontend
 
 ```
 npm install
-
 ```
 
-### Usage
+Start server(frontend):
 
-Start server(backend):
-
-```
-rails server
-```
-
-Start server(frontend): 
 ```
 npm start
+```
 
-Visit http://localhost:3000/ in your browser in the case of backend.
 The front end app will open automatically to the default browser
 
+### Run the tests
+
+```
+npm run test
 ```
 
 ## Authors
@@ -94,13 +72,12 @@ The front end app will open automatically to the default browser
 - GitHub: [@DelhinRharl](https://github.com/DelhinRharl)
 - Twitter: [@affax-kiprotich](https://twitter.com/affax-kiprotich)
 - LinkedIn: [Affaxed Kiprotich](https://www.linkedin.com/in/affaxed-kiprotich/)
- 
- 👤 **Charles Gobina**
+
+👤 **Charles Gobina**
 
 - GitHub: [@charlesgobina](https://github.com/charlesgobina)
 - Twitter: [@charles_gobina](https://twitter.com/charles_gobina)
 - LinkedIn: [Charles Gobina](https://www.linkedin.com/in/charlesgobina/)
-
 
 👤 **Kevin Koome**
 
@@ -116,9 +93,8 @@ The front end app will open automatically to the default browser
 
 ## 🅰️ Acknowledgements
 
-The design template is provided by 
+The design template is provided by
 [Creative Commons](https://creativecommons.org/)
-
 
 ## 🤝 Contributing
 
